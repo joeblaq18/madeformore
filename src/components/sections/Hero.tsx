@@ -5,30 +5,6 @@ import { ArrowDown, ArrowUpRight } from "lucide-react";
 import Button from "../ui/Button";
 
 export default function Hero() {
-  const titleVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.15,
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    }),
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
   return (
     <section
       id="home"
@@ -56,28 +32,23 @@ export default function Hero() {
             Wear the mindset. Live the vision.
           </p>
 
-          <motion.h1 
-            className="max-w-4xl text-6xl font-black uppercase leading-[0.88] tracking-[-0.05em] text-white sm:text-7xl lg:text-[7rem]"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <motion.span
-              custom={0}
-              variants={titleVariants}
-              className="inline-block"
+          <div className="max-w-4xl text-6xl font-black uppercase leading-[0.88] tracking-[-0.05em] text-white sm:text-7xl lg:text-[7rem]">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0 }}
             >
               Made
-            </motion.span>
-            <br />
-            <motion.span 
-              custom={1}
-              variants={titleVariants}
-              className="gold-gradient inline-block"
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="gold-gradient"
             >
               For More.
-            </motion.span>
-          </motion.h1>
+            </motion.div>
+          </div>
 
           <p className="mt-8 max-w-xl text-base leading-8 text-white/55 sm:text-lg">
             More than clothing. MADEFORMORE is a movement built for
